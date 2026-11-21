@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crescent Keys</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+
+  <div id="titleScreen" class="screen">
+    <div class="title-inner">
+      <div class="title-logo">CRESCENT&nbsp;KEYS</div>
+      <div class="title-sub">An original open-world crime story on the island of San Aurelio</div>
+      <button id="btnNew" class="btn">NEW GAME</button>
+      <button id="btnContinue" class="btn hidden">CONTINUE</button>
+      <div class="title-controls">
+        WASD / Arrows — move &amp; drive &nbsp;•&nbsp; E — enter / exit car &nbsp;•&nbsp; F — interact<br>
+        Space — handbrake &nbsp;•&nbsp; P / Esc — pause &nbsp;•&nbsp; M — mute &nbsp;•&nbsp; H — help
+      </div>
+    </div>
+  </div>
+
+  <div id="pauseScreen" class="screen hidden">
+    <div class="panel">
+      <h2>PAUSED</h2>
+      <button id="btnResume" class="btn">RESUME</button>
+      <button id="btnSaveQuit" class="btn">SAVE &amp; TITLE</button>
+      <div class="help-text">
+        <b>Controls</b><br>
+        WASD / Arrow keys — walk and drive<br>
+        E — enter or exit the nearest car<br>
+        F — talk / buy / save / interact at markers<br>
+        Space — handbrake (hold while steering for slides)<br>
+        P or Esc — pause &nbsp;•&nbsp; M — mute &nbsp;•&nbsp; H — toggle this help<br><br>
+        <b>Tips</b><br>
+        Crimes raise your wanted stars. Break line of sight and stay out of the
+        searchlight to cool things down. The safehouse (green house icon) saves
+        your game, heals you and clears your wanted level. Spend cash at
+        Marv's Motors (gold icon) on faster cars — they wait for you at the safehouse.
+      </div>
+    </div>
+  </div>
+
+  <div id="endScreen" class="screen hidden">
+    <div class="panel">
+      <h2 id="endTitle">BUSTED</h2>
+      <p id="endText"></p>
+      <button id="btnRespawn" class="btn">CONTINUE</button>
+    </div>
+  </div>
+
+  <div id="dialogue" class="hidden">
+    <div id="dlgName"></div>
+    <div id="dlgText"></div>
+    <div id="dlgHint">Press ENTER to continue</div>
+  </div>
+
+  <div id="banner" class="hidden"></div>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
