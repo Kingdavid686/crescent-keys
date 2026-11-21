@@ -1578,6 +1578,26 @@ G = freshState();
 populateWorld(null);
 showTitle();
 
+// Screenshot scene modes (shots.json): ?shot=start shows the title (default),
+// ?shot=play drops straight into gameplay, ?shot=end shows a BUSTED screen.
+const shotMode = (() => {
+  try { return new URLSearchParams(location.search).get('shot'); } catch { return null; }
+})();
+if (shotMode === 'play') {
+  startGame(null);
+  const car = G.cars.find((c) => c.ownedType === 'comet');
+  if (car) {
+    car.x = 2400; car.y = 2070; car.angle = 0; car.parked = false;
+    car.driver = 'player';
+    G.player.car = car;
+    G.player.x = car.x; G.player.y = car.y;
+  }
+  G.heat = 2; // a little police attention for a livelier scene
+} else if (shotMode === 'end') {
+  startGame(null);
+  endRun('busted');
+}
+
 let lastT = 0;
 function frame(ts) {
   requestAnimationFrame(frame);
